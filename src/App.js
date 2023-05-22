@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Start from './components/Start';
+import Questions from './components/Questions';
 
 function App() {
+
+  const [firstLoad, setFirstLoad] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="blob yellow"></div><div className="blob blue"></div>
+      {firstLoad ? <Start setFirstLoad={() => setFirstLoad(false)} /> : <Questions />}
     </div>
   );
 }
